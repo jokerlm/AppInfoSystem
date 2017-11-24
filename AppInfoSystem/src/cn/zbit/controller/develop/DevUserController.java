@@ -13,4 +13,10 @@ public class DevUserController {
 	@Resource
 	private DevUserService service;
 	private Logger logger = Logger.getLogger(DevUserController.class);
+	
+	@RequestMapping(value="/login")
+	public String login(){
+		logger.debug("LoginController welcome AppinfoSystem deve");
+		return "devlogin";
+	}
 }
