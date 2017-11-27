@@ -31,4 +31,5 @@
     			</list>
     		</property>
     	</bean>
+    	<mvc:resources location="/statics/" mapping="/static/**"></mvc:resources>
 </beans>   
