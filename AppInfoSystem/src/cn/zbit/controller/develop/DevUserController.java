@@ -36,7 +36,7 @@ public class DevUserController {
 			//放入session
 			session.setAttribute(Constants.DEV_USER_SESSION, user);
 			//页面跳转(main.jsp)
-			return "redirect:/dev/flatform/main";
+			return "redirect:/dev/flatfrom/main";
 		}else{
 			//保留在devlogin.jsp,带出一些提示信息
 			request.setAttribute("error", "用户名或密码不正确！");

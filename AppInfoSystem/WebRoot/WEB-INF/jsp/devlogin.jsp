@@ -49,7 +49,7 @@
 		<div class="login_wrapper">
 			<div class="animate form login_form">
 				<section class="login_content">
-					<form action="dev/dologin" method="post">
+					<form action="dologin" method="post">
 						<h1>Login Form</h1>
 						<div>
 							<input type="text" class="form-control" name="devCode" placeholder="Username" required="" />
@@ -57,9 +57,10 @@
 						<div>
 							<input type="password" class="form-control" name="devPassword" placeholder="Password" required="" />
 						</div>
+						<span>${error }</span>
 						<div>
-							<a class="btn btn-success" href="index.html">登录</a>
-							<a class="btn btn-default" href="index.html">重 填</a>
+							<button type="submit" class="btn btn-success" href="index.html">登录</button>
+							<button type="reset" class="btn btn-default" href="index.html">重 填</button>
 						</div>
 						<br/>
 						<div>

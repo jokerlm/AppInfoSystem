@@ -10,5 +10,5 @@ public interface DevUserMapper {
 	 * @param devCode
 	 * @return
 	 */
-	public DevUser getLoginUser(@Param("devcode") String devCode);
+	public DevUser getLoginUser(@Param("devCode") String devCode);
 }
