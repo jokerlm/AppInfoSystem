@@ -9,7 +9,9 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>My JSP 'index.jsp' starting page</title>
+
+<title>My JSP 'devlogin.jsp' starting page</title>
+
 <meta http-equiv="pragma" content="no-cache">
 <meta http-equiv="cache-control" content="no-cache">
 <meta http-equiv="expires" content="0">
@@ -36,22 +38,36 @@
 <link
 	href="${pageContext.request.contextPath}/statics/css/custom.min.css"
 	rel="stylesheet">
+
 </head>
 
 <body class="login">
 	<div>
-		<a class="hiddenanchor" id="signup"></a> <a class="hiddenanchor"
-			id="signin"></a>
-
+		<a class="hiddenanchor" id="signup"></a>
+		<a class="hiddenanchor"	id="signin"></a>
+		
 		<div class="login_wrapper">
-			<h1>APP信息管理系统</h1>
-			<div>
-				<a class="btn btn-link" href="index.html">后台管理系统入口</a>
+			<div class="animate form login_form">
+				<section class="login_content">
+					<form action="dev/dologin" method="post">
+						<h1>Login Form</h1>
+						<div>
+							<input type="text" class="form-control" name="devCode" placeholder="Username" required="" />
+						</div>
+						<div>
+							<input type="password" class="form-control" name="devPassword" placeholder="Password" required="" />
+						</div>
+						<div>
+							<a class="btn btn-success" href="index.html">登录</a>
+							<a class="btn btn-default" href="index.html">重 填</a>
+						</div>
+						<br/>
+						<div>
+							<p>©2016 All Rights Reserved.</p>
+						</div>
+					</form>
+				</section>
 			</div>
-			<div>
-				<a class="btn btn-link" href="dev/login">开发者平台入口</a>
-			</div>
-			<div class="clearfix"></div>
 		</div>
 	</div>
 </body>

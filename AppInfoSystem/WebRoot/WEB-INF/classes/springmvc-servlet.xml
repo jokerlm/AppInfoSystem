@@ -14,7 +14,6 @@
     	<!-- 配置多视图解析器 -->
     	<bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
     		<property name="favorParameter" value="true"/>
-    		<property name="defalutContentType" value="text/html"/>
     		<property name="mediaTypes">
     			<map>
             		<entry key="html" value="text/html; charset=UTF-8"/>
@@ -31,5 +30,5 @@
     			</list>
     		</property>
     	</bean>
-    	<mvc:resources location="/statics/" mapping="/static/**"></mvc:resources>
+    	<mvc:resources location="/statics/" mapping="/statics/**"></mvc:resources>
 </beans>   
