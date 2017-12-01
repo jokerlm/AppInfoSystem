@@ -3,9 +3,10 @@ package cn.zbit.dao.appinfo;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
 import cn.zbit.pojo.AppInfo;
-
+@Repository("appInfoMapper")
 public interface AppInfoMapper {
 	public int add(AppInfo appInfo) throws Exception;
 
