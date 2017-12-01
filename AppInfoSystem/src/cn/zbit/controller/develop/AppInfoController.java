@@ -15,6 +15,7 @@ import cn.zbit.pojo.AppCategory;
 import cn.zbit.pojo.AppInfo;
 import cn.zbit.pojo.DataDictionary;
 import cn.zbit.pojo.DevUser;
+import cn.zbit.service.developer.AppCategoryService;
 import cn.zbit.service.developer.AppInfoService;
 import cn.zbit.service.developer.DataDictionaryService;
 import cn.zbit.tools.Constants;
@@ -130,25 +131,17 @@ public class AppInfoController {
 		model.addAttribute("queryCategoryLevel3",queryCategoryLevel3);
 		model.addAttribute("queryFlatformId",queryFlatformId);
 		
-		return null;
+		return "developer/appinfolist";
 	}
 	
 	public List<DataDictionary> getDataDictionaryList(String typeCode){
-		return null
+		List<DataDictionary> dataDictionaryList = null;
+		try {
+			dataDictionaryList = dataDictionaryService.getDataDictionaryList(typeCode);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return dataDictionaryList;
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
