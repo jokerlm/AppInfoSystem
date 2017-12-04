@@ -14,6 +14,7 @@
 				<br />
 				<form id="demo-form2" data-parsley-validate
 					class="form-horizontal form-label-left">
+					<input type="hidden" name="pageIndex" value="1"/>
 					<ul>
 						<li>
 							<div class="form-group">
@@ -118,9 +119,9 @@
 				</form>
 			</div>
 		</div>
-	</div>
 	<div class="x_panel">
 		<div class="x_content">
+		<a href="" class="btn btn-success">新增APP基础信息</a>
 			<table id="datatable" class="table table-striped table-bordered">
 				<thead>
 					<tr>
@@ -176,5 +177,47 @@
 					</c:forEach>
 				</tbody>
 			</table>
+			</div>
+			<div class="row">
+					<div class="col-sm-5">
+						<div class="dataTables_info" id="datatable-responsive_info"
+							role="status" aria-live="polite">共${pages.totalCount }条记录
+							${pages.currentPageNo }/${pages.totalPageCount }页</div>
+					</div>
+					<div class="col-sm-7">
+						<div class="dataTables_paginate paging_simple_numbers"
+							id="datatable-responsive_paginate">
+							<ul class="pagination">
+								<c:if test="${pages.currentPageNo > 1}">
+									<li class="paginate_button previous"><a
+										href="javascript:page_nav(document.forms[0],1);"
+										aria-controls="datatable-responsive" data-dt-idx="0"
+										tabindex="0">首页</a>
+									</li>
+									<li class="paginate_button "><a
+										href="javascript:page_nav(document.forms[0],${pages.currentPageNo-1});"
+										aria-controls="datatable-responsive" data-dt-idx="1"
+										tabindex="0">上一页</a>
+									</li>
+								</c:if>
+								<c:if test="${pages.currentPageNo < pages.totalPageCount }">
+									<li class="paginate_button "><a
+										href="javascript:page_nav(document.forms[0],${pages.currentPageNo+1 });"
+										aria-controls="datatable-responsive" data-dt-idx="1"
+										tabindex="0">下一页</a>
+									</li>
+									<li class="paginate_button next"><a
+										href="javascript:page_nav(document.forms[0],${pages.totalPageCount });"
+										aria-controls="datatable-responsive" data-dt-idx="7"
+										tabindex="0">最后一页</a>
+									</li>
+								</c:if>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			</div>
 		</div>
 		<%@include file="common/footer.jsp"%>
+		<script src="${pageContext.request.contextPath }/statics/localjs/rollpage.js"></script>
