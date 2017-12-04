@@ -9,7 +9,9 @@ import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import cn.zbit.pojo.AppCategory;
 import cn.zbit.pojo.AppInfo;
@@ -143,5 +145,32 @@ public class AppInfoController {
 			e.printStackTrace();
 		}
 		return dataDictionaryList;
+	}
+	
+	/**
+	 * 根据parentId查询出相应的分类级别列表
+	 * @param pid
+	 * @return
+	 */
+	@RequestMapping(value="/categoryLevelList.json",method=RequestMethod.GET)
+	@ResponseBody
+	public List<AppCategory> getAppCategoryList(@RequestParam String pid){
+		logger.debug("getAppCategoryList pid==================" + pid);
+		if(("").equals(pid)) pid = null;
+		return getCategoryList(pid);
+	}
+	
+	public List<AppCategory> getCategoryList(String pid){
+		List<AppCategory> categoryLevelList = null;
+		try {
+			categoryLevelList = appCategoryService.getAppCategoryListByParentId(pid==null?null:Integer.parseInt(pid));
+		} catch (NumberFormatException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return categoryLevelList;
 	}
 }
