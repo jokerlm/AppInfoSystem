@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -35,6 +36,8 @@ public class AppInfoController {
 	
 	private Logger logger = Logger.getLogger(DevUserController.class);
 	
+
+	
 	@RequestMapping(value="/list")
 	public String getAppInfoList(Model model,HttpSession session,
 			@RequestParam(value="querySoftwareName",required=false) String querySoftwareName,
@@ -52,7 +55,13 @@ public class AppInfoController {
 		logger.info("getAppInfoList-->querySoftwareName:"+_queryFlatformId);
 		logger.info("getAppInfoList-->querySoftwareName:"+pageIndex);
 		
-		Integer devId = ((DevUser)session.getAttribute(Constants.DEV_USER_SESSION)).getId();
+		Integer devId = null;
+		try {
+			devId = ((DevUser)session.getAttribute(Constants.DEV_USER_SESSION)).getId();
+		} catch (Exception e1) {
+			return "index";
+		}
+		
 		List<AppInfo> appInfoList = null;
 		List<DataDictionary> statusList = null;
 		List<DataDictionary> flatFormList = null;
@@ -152,13 +161,14 @@ public class AppInfoController {
 	 * @param pid
 	 * @return
 	 */
-	@RequestMapping(value="/categoryLevelList.json",method=RequestMethod.GET)
+	@RequestMapping(value="/categorylevellist.json",method=RequestMethod.GET)
 	@ResponseBody
 	public List<AppCategory> getAppCategoryList(@RequestParam String pid){
 		logger.debug("getAppCategoryList pid==================" + pid);
-		if(("").equals(pid)) pid = null;
+		if((pid).equals("")) pid = null;
 		return getCategoryList(pid);
 	}
+	
 	
 	public List<AppCategory> getCategoryList(String pid){
 		List<AppCategory> categoryLevelList = null;

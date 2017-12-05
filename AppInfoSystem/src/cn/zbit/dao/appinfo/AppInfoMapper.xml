@@ -64,7 +64,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			from  app_info a
 		<trim prefix="where" prefixOverrides="and | or">
 			<if test="softwareName != null and softwareName != ''">
-				and a.softwareName like CONCAT ('%',#{softwareName},'%')
+				and a.softwareName like CONCAT('%',#{softwareName},'%')
 			</if>
 			<if test="status != null">
 				and a.status = #{status}
@@ -92,7 +92,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select count(*) as count from app_info a
 			<trim prefix="where" prefixOverrides="and | or">
 				<if test="softwareName != null and softwareName != ''">
-					and a.softwareName like CONCAT ('%',#{softwareName},'%')
+					and a.softwareName like CONCAT('%',#{softwareName},'%')
 				</if>
 				<if test="status != null">
 					and a.status = #{status}

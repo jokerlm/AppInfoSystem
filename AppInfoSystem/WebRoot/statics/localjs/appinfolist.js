@@ -10,6 +10,9 @@ $("#queryCategoryLevel1").change(function(){
 				$("#queryCategoryLevel2").html("");
 				var options = "<option value=\"\">--请选择--</option>";
 				for(var i = 0; i < data.length; i++){
+					
+					
+					
 					options += "<option value=\""+data[i].id+"\">"+data[i].categoryName+"</option>";
 				}
 				$("#queryCategoryLevel2").html(options);
@@ -199,5 +202,3 @@ $(".deleteApp").on("click",function(){
 		});
 	}
 });
-
-	

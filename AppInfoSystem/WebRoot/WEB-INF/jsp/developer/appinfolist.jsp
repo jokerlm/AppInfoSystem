@@ -12,8 +12,7 @@
 			</div>
 			<div class="x_content">
 				<br />
-				<form id="demo-form2" data-parsley-validate
-					class="form-horizontal form-label-left">
+				<form method="post" action="list">
 					<input type="hidden" name="pageIndex" value="1"/>
 					<ul>
 						<li>
